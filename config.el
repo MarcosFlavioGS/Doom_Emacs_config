@@ -58,7 +58,15 @@
 
 (use-package prettier-js-mode
   :hook (js-mode . prettier-js-mode)
-  :hook (typescript-mode . prettier-js-mode))
+  :hook (typescript-mode . prettier-js-mode)
+  
+  :config (setq prettier-js-args '(
+                                   "--print-width" "140"
+                                   "--trailing-comma" "all"
+                                   "--tab-width" "2"
+                                   "--semi" "true"
+                                   "--single-quote" "true"
+                                   )))
 
 (setq prettier-js-args '("--print-width" "75"))
 
