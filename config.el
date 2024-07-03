@@ -21,8 +21,11 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Hack NF" :size 16))
+(setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 16))
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -47,15 +50,6 @@
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
-;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
-
 (use-package prettier-js-mode
   :hook (js-mode . prettier-js-mode)
   :hook (typescript-mode . prettier-js-mode)
@@ -67,6 +61,10 @@
                                    "--semi" "true"
                                    "--single-quote" "true"
                                    )))
+
+(use-package lsp-mode
+  :hook
+  ((python-mode . lsp)))
 
 (setq prettier-js-args '("--print-width" "75"))
 
