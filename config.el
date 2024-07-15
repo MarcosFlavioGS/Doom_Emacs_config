@@ -75,7 +75,7 @@
   :hook
   (elixir-mode . lsp)
   :init
-  (add-to-list 'exec-path "~/elixir-ls/scripts/language_server.sh"))
+  (add-to-list 'exec-path "~/eli-ls"))
 
 (setq lsp-zig-zls-executable "~/zls/zig-out/bin/zls")
 
