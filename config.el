@@ -68,14 +68,14 @@
 
 (setq prettier-js-args '("--print-width" "75"))
 
-(use-package lsp-mode
-  :commands lsp
-  :ensure t
-  :diminish lsp-mode
-  :hook
-  (elixir-mode . lsp)
-  :init
-  (add-to-list 'exec-path "~/eli-ls"))
+;; (use-package lsp-mode
+;;   :commands lsp
+;;   :ensure t
+;;   :diminish lsp-mode
+;;   :hook
+;;   (elixir-mode . lsp)
+;;   :init
+;;   (add-to-list 'exec-path "~/.elixir-ls/release"))
 
 (setq lsp-zig-zls-executable "~/zls/zig-out/bin/zls")
 
