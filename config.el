@@ -50,12 +50,14 @@
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
+(add-hook 'before-save-hook 'ocamlformat-before-save)
+
 (use-package prettier-js-mode
   :hook (js-mode . prettier-js-mode)
   :hook (typescript-mode . prettier-js-mode)
-  
+
   :config (setq prettier-js-args '(
-                                   "--print-width" "140"
+                                   "--print-width" "110"
                                    "--trailing-comma" "all"
                                    "--tab-width" "2"
                                    "--semi" "true"
@@ -66,7 +68,7 @@
   :hook
   ((python-mode . lsp)))
 
-(setq prettier-js-args '("--print-width" "75"))
+;;(setq prettier-js-args '("--print-width" "110"))
 
 ;; (use-package lsp-mode
 ;;   :commands lsp
@@ -92,6 +94,7 @@
 (require 'dap-gdb-lldb)
 
 (require 'lsp-java)
+
 (add-hook 'java-mode-hook #'lsp)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
