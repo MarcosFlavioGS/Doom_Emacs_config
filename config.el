@@ -55,6 +55,7 @@
 (use-package prettier-js-mode
   :hook (js-mode . prettier-js-mode)
   :hook (typescript-mode . prettier-js-mode)
+  :hook (tsx-ts-mode . prettier-js-mode)
 
   :config (setq prettier-js-args '(
                                    "--print-width" "110"
@@ -71,13 +72,15 @@
 ;;(setq prettier-js-args '("--print-width" "110"))
 
 ;; (use-package lsp-mode
-;;   :commands lsp
-;;   :ensure t
-;;   :diminish lsp-mode
-;;   :hook
-;;   (elixir-mode . lsp)
-;;   :init
-;;   (add-to-list 'exec-path "~/.elixir-ls/release"))
+;;  :commands lsp
+;;  :ensure t
+;;  :diminish lsp-mode
+;;  :hook
+;;  (elixir-mode . lsp)
+;;  :init
+;;  (add-to-list 'exec-path "~/.elixir-ls"))
+
+;;(setq lsp-elixir-ls-version "v0.24.0")
 
 (setq lsp-zig-zls-executable "~/zls/zig-out/bin/zls")
 
@@ -96,6 +99,9 @@
 (require 'lsp-java)
 
 (add-hook 'java-mode-hook #'lsp)
+
+(require 'flycheck-elixir)
+(add-hook 'elixir-mode-hook 'flycheck-mode)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
