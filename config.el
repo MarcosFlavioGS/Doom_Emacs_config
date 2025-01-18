@@ -82,7 +82,7 @@
 
 ;;(setq lsp-elixir-ls-version "v0.24.0")
 
-(setq lsp-zig-zls-executable "~/zls/zig-out/bin/zls")
+(setq lsp-zig-zls-executable "zls")
 
 ;;dap-mode for python
 (require 'dap-python)
@@ -102,6 +102,30 @@
 
 (require 'flycheck-elixir)
 (add-hook 'elixir-mode-hook 'flycheck-mode)
+
+;; C3 config ------------------------------------------->
+;;  
+(setq treesit-language-source-alist ;; Grammar for the tree-sitter
+  '((c3 "https://github.com/c3lang/tree-sitter-c3")))
+
+(use-package! c3-ts-mode
+  :mode "\\.c3\\'"
+  :config
+  (add-hook 'c3-ts-mode-hook #'tree-sitter-hl-mode)) ;; Use Straight to get the c3-ts-mode from the github
+
+;; (use-package lsp-mode
+;;   :config
+;;   ;; Register the C3 language server
+;;   (add-to-list 'lsp-language-id-configuration '(c3-ts-mode . "c3"))
+;;   (lsp-register-client
+;;    (make-lsp-client
+;;     :new-connection (lsp-stdio-connection "c3lsp")
+;;     :major-modes '(c3-ts-mode)
+;;     :server-id 'c3lsp)))
+
+;; ;; Enable lsp-mode in c3-ts-mode
+;; (add-hook 'c3-ts-mode-hook #'lsp)
+;; ----------------------------------------------------->
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.

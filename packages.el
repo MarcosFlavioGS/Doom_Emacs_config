@@ -10,6 +10,8 @@
 (setq merlin-command "<BIN_DIR>/ocamlmerlin")  ; needed only if ocamlmerlin not already in your PATH
 (add-hook 'tuareg-mode-hook #'merlin-mode)
 (add-hook 'caml-mode-hook #'merlin-mode)
+
+(package! c3-ts-mode :recipe (:host github :repo "c3lang/c3-ts-mode"))
 ;; Uncomment these lines if you want to enable integration with the corresponding packages
 ;; (require 'merlin-iedit)       ; iedit.el editing of occurrences
 ;; (require 'merlin-company)     ; company.el completion
