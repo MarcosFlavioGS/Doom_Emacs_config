@@ -100,8 +100,17 @@
 
 (add-hook 'java-mode-hook #'lsp)
 
-(require 'flycheck-elixir)
-(add-hook 'elixir-mode-hook 'flycheck-mode)
+;;(require 'flycheck-elixir)
+;;(add-hook 'elixir-mode-hook 'flycheck-mode)
+;;
+
+(after! projectile
+  (add-to-list 'projectile-ignored-projects "~/")) ; Replace ~/ with your $HOME path
+
+(add-hook 'scala-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+
 
 ;; C3 config ------------------------------------------->
 ;;  

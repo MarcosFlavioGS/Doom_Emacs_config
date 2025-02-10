@@ -51,6 +51,7 @@
        ;;window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
        zen               ; distraction-free coding or writing
+       image
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
@@ -72,6 +73,7 @@
        ;;ibuffer         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
+       +image
 
        :term
        eshell            ; the elisp shell that works everywhere
@@ -142,7 +144,7 @@
        ;;idris             ; a language you can depend on
        ;;json              ; At least it ain't XML
        (java +lsp +tree-sitter)  ; the poster child for carpal tunnel syndrome
-       (javascript +lsp +tree-sitter)   ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript +lsp +tree-sitter)  ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        latex               ; writing papers in Emacs has never been so fun
@@ -165,7 +167,7 @@
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        (rust +lsp)         ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-       ;;scala             ; java, but good
+       (scala +lsp +tree-sitter)             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
