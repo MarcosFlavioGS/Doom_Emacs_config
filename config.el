@@ -42,6 +42,10 @@
 (setq-default indent-tabs-mode t)  ; Use tabs for indentation
 (setq-default tab-width 4)         ; Set tab width to 4 spaces (or your preferred width)
 
+;; Rebind keys for wraping in curly and square brackets. NOTE: This overides backward-paragraph (eg: M-{ and M-[ )
+(global-set-key (kbd "M-[") 'insert-pair)
+(global-set-key (kbd "M-{") 'insert-pair)
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -100,8 +104,15 @@
 
 (add-hook 'java-mode-hook #'lsp)
 
-;;(require 'flycheck-elixir)
-;;(add-hook 'elixir-mode-hook 'flycheck-mode)
+(require 'flycheck-elixir)
+(add-hook 'elixir-mode-hook 'flycheck-mode)
+
+(eval-after-load 'flycheck
+    '(flycheck-credo-setup))
+(add-hook 'elixir-mode-hook 'flycheck-mode)
+
+(add-hook 'elixir-mode-hook 'mix-minor-mode)
+
 ;;
 
 (after! projectile
