@@ -50,6 +50,12 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; -------------------->>
+(setq ispell-program-name "hunspell"
+      ispell-local-dictionary "en_US"
+      ispell-local-dictionary-alist
+      '(("en_US" "[^A-Za-z]" "[^A-Za-z]" "[']" nil ("-d" "en_US") nil utf-8)))
+
 ;; tree-sitter-hl-mode
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
